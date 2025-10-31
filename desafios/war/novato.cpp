@@ -1,3 +1,5 @@
+/*Bibliotecas necessárias: inclua as bibliotecas stdio.h e string.h.*/
+ 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h> 
@@ -5,7 +7,6 @@
 /* 
 Criação da struct: definir uma struct chamada Territorio com os campos char nome[30], char cor[10] e int tropas.
 */
-
 
 typedef struct {
     char nome[30];
@@ -26,8 +27,14 @@ int main() {
     printf("Quantos territorios você deseja cadastrar?");
     scanf("%d", &totalTerritorios);
 
+    /*  
+    Entrada dos dados: utilize um laço for para preencher os dados dos 5 territórios.
+    */
     Territorio* territoriosCadastrados = CadastrarTerritorio(totalTerritorios);
 
+    /*  
+    Exibição: percorra, após o cadastro, o vetor e exiba os dados de cada território com formatação clara.
+    */
     MostrarTerritorios(territoriosCadastrados, totalTerritorios);
 
    return 0;
@@ -42,6 +49,9 @@ Cadastro dos territórios: o sistema deve permitir que o usuário cadastre cinco
 Territorio* CadastrarTerritorio(int totalTerritorios) {
     Territorio* territorios;
 
+    /*  
+    Declaração de vetor de structs: crie um vetor com capacidade para armazenar 5 estruturas do tipo Territorio.
+    */
     territorios = (Territorio*)malloc(totalTerritorios * sizeof(Territorio));
 
     for (int i = 0; i < totalTerritorios; i++) {
